@@ -20,15 +20,6 @@ Only return the helpful answer below and nothing else.
 Helpful answer:
 """
 
-class ConversationBufferMemory(ConversationBufferMemory):  # Correct reference
-    def save_context(self, inputs: dict, outputs: dict) -> None:
-        input_str = json.dumps(inputs, ensure_ascii=False)
-        if 'result' in outputs:
-            output_str = outputs['result']
-        else:
-            output_str = None
-        self.contexts.append((input_str, output_str))
-
 def set_custom_prompt():
     """
     Prompt template for QA retrieval for each vectorstore
